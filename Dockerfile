@@ -20,6 +20,9 @@ RUN apt-get update \
 		ttf-lyx \
 		python3 \
 		intltool \
+		jing \
+		libbatik-java \
+		libavalon-framework-java \
 	&& gem install --no-ri --no-rdoc asciidoctor \
 	&& gem install --no-ri --no-rdoc coderay \
 	&& gem install --no-ri --no-rdoc --pre asciidoctor-pdf \
@@ -31,6 +34,8 @@ RUN apt-get update \
 	&& make install \
 	&& ln -s /usr/local/lib/liblasem-0.6.so /usr/lib/liblasem.so \
 	&& rm -rf /tmp/lasem-0.5.0
+
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 
 WORKDIR /documents
 VOLUME /documents
