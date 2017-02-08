@@ -18,10 +18,19 @@ RUN apt-get update \
 		libcairo2-dev \
 		libpango1.0-dev \
 		ttf-lyx \
+		python3 \
+		intltool \
 	&& gem install --no-ri --no-rdoc asciidoctor \
 	&& gem install --no-ri --no-rdoc coderay \
 	&& gem install --no-ri --no-rdoc --pre asciidoctor-pdf \
-	&& MATHEMATICAL_SKIP_STRDUP=1 gem install --no-ri --no-rdoc asciidoctor-mathematical
+	&& MATHEMATICAL_SKIP_STRDUP=1 gem install --no-ri --no-rdoc asciidoctor-mathematical \
+	&& curl http://ie.archive.ubuntu.com/gnome/sources/lasem/0.5/lasem-0.5.0.tar.xz | tar -C /tmp -xJf - \
+	&& cd /tmp/lasem-0.5.0 \
+	&& ./configure \
+	&& make \
+	&& make install \
+	&& ln -s /usr/local/lib/liblasem-0.6.so /usr/lib/liblasem.so \
+	&& rm -rf /tmp/lasem-0.5.0
 
 WORKDIR /documents
 VOLUME /documents
