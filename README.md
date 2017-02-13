@@ -8,11 +8,13 @@ docker run -it -v /path/to/Vulkan-Docs:/documents michaelworcester/docker-specbu
 
 Inside the new shell you can run commands such as:
 
+```
 cd src/spec ; make validate
 cd src/spec ; make
 
 cd doc/specs/vulkan ; make html
 cd doc/specs/vulkan ; make
+```
 
 Note: The output files will be owned by root, I will attempt to fix this.
 
