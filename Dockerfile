@@ -21,6 +21,7 @@ RUN apt-get update \
 		python3 \
 		intltool \
 		jing \
+		ghostscript \
 		libbatik-java \
 		libavalon-framework-java \
 	&& gem install --no-ri --no-rdoc asciidoctor \
